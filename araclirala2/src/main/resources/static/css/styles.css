@@ -1,0 +1,555 @@
+/* Ana Stil Dosyası */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #343a40;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Giriş ve Kayıt Formları */
+.auth-container {
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h1 {
+    margin: 0 0 10px 0;
+    color: #0d6efd;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.form-header p {
+    color: #6c757d;
+    font-size: 16px;
+    margin: 0;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #212529;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #0d6efd;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-2px);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+    color: #6c757d;
+    font-size: 15px;
+}
+
+.form-footer a {
+    color: #0d6efd;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Alert Messages */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.alert-success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+}
+
+/* Navbar Stili */
+.navbar {
+    background-color: #0d6efd;
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin-left: 20px;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Sayfa Bölümleri */
+.welcome-section {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 5px solid #0d6efd;
+}
+
+.content-section {
+    margin-bottom: 40px;
+}
+
+.welcome-section h1 {
+    color: #0d6efd;
+    margin: 0 0 10px 0;
+}
+
+.welcome-section p {
+    color: #6c757d;
+    margin: 0;
+}
+
+/* Araç Filtreleme */
+.car-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.car-search, .car-filter {
+    padding: 12px 18px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.car-search {
+    flex: 1;
+    min-width: 300px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.car-search:focus, .car-filter:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+    outline: none;
+}
+
+/* Form Satırları */
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+/* Araç Listesi */
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.car-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.car-image {
+    width: 100%;
+    height: 200px;
+    border-bottom: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.car-image img[src*="placeholder"],
+.car-image img.error-image {
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0d6efd;
+    font-size: 64px;
+}
+
+.car-image img.error-image::before {
+    content: '\f1b9'; /* car icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+.car-info {
+    padding: 20px;
+}
+
+.car-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    color: #212529;
+}
+
+.car-details {
+    color: #6c757d;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.car-price {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0d6efd;
+    margin-bottom: 15px;
+}
+
+.car-attributes {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.car-attribute {
+    background-color: #e9ecef;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #495057;
+}
+
+/* Kiralama Tablosu */
+.rental-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.rental-table th {
+    background-color: #0d6efd;
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid #dee2e6;
+    color: white;
+    font-weight: 600;
+}
+
+.rental-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+
+.rental-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Kiralama Araç Bilgisi */
+.rental-car-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.rental-car-image {
+    width: 80px;
+    height: 60px;
+    border-radius: 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.rental-car-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Fiyat Stilleri */
+.rental-price {
+    font-weight: 600;
+    color: #0d6efd;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.rental-total-price {
+    font-size: 14px;
+    color: #495057;
+    margin-bottom: 5px;
+}
+
+.rental-extra-price {
+    font-size: 14px;
+    color: #dc3545;
+}
+
+.rental-car-info {
+    display: flex;
+    align-items: center;
+}
+
+.rental-car-image {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.rental-car-info div {
+    display: flex;
+    flex-direction: column;
+}
+
+.rental-car-info small {
+    color: #6c757d;
+}
+
+.rental-price {
+    font-weight: 600;
+    color: #0d6efd;
+}
+
+.rental-extra-price {
+    font-size: 12px;
+    color: #dc3545;
+    margin-top: 5px;
+}
+
+/* Durum Rozetleri */
+.status-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-right: 5px;
+}
+
+.status-active {
+    background-color: #28a745;
+    color: white;
+}
+
+.status-completed {
+    background-color: #6c757d;
+    color: white;
+}
+
+.status-cancelled {
+    background-color: #dc3545;
+    color: white;
+}
+
+.status-available {
+    background-color: #28a745;
+    color: white;
+}
+
+.status-unavailable {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Araç Müsaitlik Bilgisi */
+.car-availability {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.rental-dates {
+    margin-bottom: 10px;
+    padding: 8px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.rental-dates p {
+    margin: 0 0 5px 0;
+    font-weight: 500;
+    color: #495057;
+}
+
+.rental-dates-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rental-dates-list li {
+    padding: 2px 0;
+    color: #6c757d;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px 0;
+    color: #6c757d;
+}
+
+.empty-state p {
+    margin-bottom: 20px;
+}
+
+.btn-sm {
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+/* Mobil Görünüm */
+@media (max-width: 768px) {
+    .auth-container {
+        max-width: 100%;
+        margin: 20px;
+        padding: 30px;
+    }
+
+    .car-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar .container {
+        flex-direction: column;
+    }
+
+    .navbar-nav {
+        margin-top: 15px;
+    }
+
+    .nav-item {
+        margin: 0 10px;
+    }
+
+    .car-filters {
+        flex-direction: column;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}

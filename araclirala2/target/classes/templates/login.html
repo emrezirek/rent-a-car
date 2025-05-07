@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap - Araç Kiralama Sistemi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="form-header">
+            <h1>Giriş Yap</h1>
+            <p>Hesabınıza giriş yaparak araç kiralama işlemlerine başlayın</p>
+        </div>
+        
+        <div th:if="${success}" class="alert alert-success">
+            <i class="fas fa-check-circle"></i> <span th:text="${success}">İşlem başarılı!</span>
+        </div>
+        
+        <div th:if="${error}" class="alert alert-danger">
+            <i class="fas fa-exclamation-circle"></i> <span th:text="${error}">Giriş sırasında bir hata oluştu.</span>
+        </div>
+        
+        <form id="loginForm" th:action="@{/login}" method="post">
+            <div class="form-group">
+                <label for="email"><i class="fas fa-envelope"></i> E-posta</label>
+                <input type="email" id="email" name="email" placeholder="E-posta adresiniz" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password"><i class="fas fa-lock"></i> Şifre</label>
+                <input type="password" id="password" name="password" placeholder="Şifreniz" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">
+                <i class="fas fa-sign-in-alt"></i> Giriş Yap
+            </button>
+        </form>
+        
+        <div class="form-footer">
+            Hesabınız yok mu? <a th:href="@{/register}">Kayıt Ol</a>
+        </div>
+    </div>
+</body>
+</html>

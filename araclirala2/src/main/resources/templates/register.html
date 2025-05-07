@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt Ol - Araç Kiralama Sistemi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="form-header">
+            <h1>Kayıt Ol</h1>
+            <p>Araç kiralama sistemine hoş geldiniz! Hesap oluşturarak hemen kiralama işlemlerine başlayabilirsiniz.</p>
+        </div>
+        
+        <div th:if="${success}" class="alert alert-success">
+            <i class="fas fa-check-circle"></i> <span th:text="${success}">Kayıt başarılı!</span>
+        </div>
+        
+        <div th:if="${error}" class="alert alert-danger">
+            <i class="fas fa-exclamation-circle"></i> <span th:text="${error}">Kayıt sırasında bir hata oluştu.</span>
+        </div>
+        
+        <form id="registerForm" th:action="@{/register}" method="post">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName"><i class="fas fa-user"></i> Ad</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Adınız" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lastName"><i class="fas fa-user"></i> Soyad</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Soyadınız" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="address"><i class="fas fa-map-marker-alt"></i> Adres</label>
+                <textarea id="address" name="address" placeholder="Sokak, Mahalle, İlçe, İl" rows="2" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="email"><i class="fas fa-envelope"></i> E-posta</label>
+                <input type="email" id="email" name="email" placeholder="ornek@email.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone"><i class="fas fa-phone"></i> Telefon</label>
+                <input type="tel" id="phone" name="phone" placeholder="5xx xxx xx xx" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password"><i class="fas fa-lock"></i> Şifre</label>
+                <input type="password" id="password" name="password" placeholder="En az 6 karakter" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirmPassword"><i class="fas fa-lock"></i> Şifre Tekrar</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Şifrenizi tekrar girin" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">
+                <i class="fas fa-user-plus"></i> Kayıt Ol
+            </button>
+        </form>
+        
+        <div class="form-footer">
+            Zaten hesabınız var mı? <a th:href="@{/login}">Giriş Yap</a>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                e.preventDefault();
+                alert('Şifreler eşleşmiyor. Lütfen tekrar deneyin.');
+            }
+            
+            if (password.length < 6) {
+                e.preventDefault();
+                alert('Şifreniz en az 6 karakter uzunluğunda olmalıdır.');
+            }
+        });
+    </script>
+    
+
+</body>
+</html>

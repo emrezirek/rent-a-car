@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiralama Geçmişim - Araç Kiralama</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="navbar-brand"><i class="fas fa-car"></i> Araç Kiralama</a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a th:href="@{/}" class="nav-link"><i class="fas fa-home"></i> Ana Sayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/rent-history}" class="nav-link"><i class="fas fa-history"></i> Kiralama Geçmişim</a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/logout}" class="nav-link"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div th:if="${success}" class="alert alert-success">
+            <i class="fas fa-check-circle"></i> <span th:text="${success}">İşlem başarılı!</span>
+        </div>
+        
+        <div th:if="${error}" class="alert alert-danger">
+            <i class="fas fa-exclamation-circle"></i> <span th:text="${error}">Bir hata oluştu.</span>
+        </div>
+        
+        <div class="content-section">
+            <h2><i class="fas fa-history"></i> Kiralama Geçmişim</h2>
+            
+            <div th:if="${rentals.isEmpty()}" class="empty-state">
+                <p>Henüz bir kiralama işleminiz bulunmuyor.</p>
+                <a th:href="@{/}" class="btn btn-primary"><i class="fas fa-car"></i> Araç Kirala</a>
+            </div>
+            
+            <div th:unless="${rentals.isEmpty()}">
+                <table class="rental-table">
+                    <thead>
+                        <tr>
+                            <th>Araç</th>
+                            <th>Başlangıç Tarihi</th>
+                            <th>Bitiş Tarihi</th>
+                            <th>Tutar</th>
+                            <th>Durum</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="rental : ${rentals}">
+                            <td>
+                                <div class="rental-car-info">
+                                    <!-- Marka bazlı sabit resim yolları (Thymeleaf @{} sözdizimi ile) -->
+                                    <div class="rental-car-image">
+                                        <img th:if="${rental.car.brand == 'Toyota'}" th:src="@{/images/cars/toyotacorolla.png}" th:alt="${rental.car.brand + ' ' + rental.car.model}" style="width:100%; height:100%; object-fit:cover;" />
+                                        <img th:if="${rental.car.brand == 'Renault'}" th:src="@{/images/cars/clio.jpg}" th:alt="${rental.car.brand + ' ' + rental.car.model}" style="width:100%; height:100%; object-fit:cover;" />
+                                        <img th:if="${rental.car.brand == 'Volkswagen'}" th:src="@{/images/cars/golf.png}" th:alt="${rental.car.brand + ' ' + rental.car.model}" style="width:100%; height:100%; object-fit:cover;" />
+                                        <img th:if="${rental.car.brand == 'Ford'}" th:src="@{/images/cars/ford.jpg}" th:alt="${rental.car.brand + ' ' + rental.car.model}" style="width:100%; height:100%; object-fit:cover;" />
+                                        <img th:if="${rental.car.brand == 'Honda'}" th:src="@{/images/cars/honda.jpg}" th:alt="${rental.car.brand + ' ' + rental.car.model}" style="width:100%; height:100%; object-fit:cover;" />
+                                        <img th:if="${rental.car.brand == 'Hyundai'}" th:src="@{/images/cars/i20.jpg}" th:alt="${rental.car.brand + ' ' + rental.car.model}" style="width:100%; height:100%; object-fit:cover;" />
+                                        <img th:if="${rental.car.brand == 'Fiat'}" th:src="@{/images/cars/fiat.png}" th:alt="${rental.car.brand + ' ' + rental.car.model}" style="width:100%; height:100%; object-fit:cover;" />
+                                        <img th:if="${rental.car.brand == 'Opel'}" th:src="@{/images/cars/opel.png}" th:alt="${rental.car.brand + ' ' + rental.car.model}" style="width:100%; height:100%; object-fit:cover;" />
+                                        <img th:if="${rental.car.brand == 'Mercedes'}" th:src="@{/images/cars/mercedes.jpg}" th:alt="${rental.car.brand + ' ' + rental.car.model}" style="width:100%; height:100%; object-fit:cover;" />
+                                        <img th:if="${rental.car.brand == 'BMW'}" th:src="@{/images/cars/bmw.jpg}" th:alt="${rental.car.brand + ' ' + rental.car.model}" style="width:100%; height:100%; object-fit:cover;" />
+                                        <!-- Varsayılan resim (eğer marka eşleşmezse) -->
+                                        <img th:if="${rental.car.brand != 'Toyota' and rental.car.brand != 'Renault' and rental.car.brand != 'Volkswagen' and rental.car.brand != 'Ford' and rental.car.brand != 'Honda' and rental.car.brand != 'Hyundai' and rental.car.brand != 'Fiat' and rental.car.brand != 'Opel' and rental.car.brand != 'Mercedes' and rental.car.brand != 'BMW'}" th:src="@{/images/cars/default-car.jpg}" th:alt="${rental.car.brand + ' ' + rental.car.model}" style="width:100%; height:100%; object-fit:cover;" />
+                                    </div>
+                                    <div>
+                                        <strong th:text="${rental.car.brand + ' ' + rental.car.model}">Marka Model</strong>
+                                        <small th:text="${rental.car.year}">Yıl</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td th:text="${rental.startDate}">01.01.2023</td>
+                            <td th:text="${rental.endDate}">10.01.2023</td>
+                            <td>
+                                <!-- Günlük fiyatı göster -->
+                                <div class="rental-price">
+                                    <span th:text="${rental.car.dailyPrice + ' TL/gün'}">500 TL/gün</span>
+                                </div>
+                                <!-- Toplam fiyat göster -->
+                                <div class="rental-total-price">
+                                    <span th:text="${'Toplam: ' + rental.totalPrice + ' TL'}">Toplam: 5000 TL</span>
+                                </div>
+                                <!-- Ek ücret varsa göster -->
+                                <div th:if="${rental.extraCharge != null and rental.extraCharge > 0}" th:text="${'+' + rental.extraCharge + ' TL (Ek)'}" class="rental-extra-price">+ 100 TL (Ek)</div>
+                            </td>
+                            <td>
+                                <span th:if="${rental.status == 'Active'}" class="status-badge status-active">Aktif</span>
+                                <span th:if="${rental.status == 'Completed'}" class="status-badge status-completed">Tamamlandı</span>
+                                <span th:if="${rental.status == 'Cancelled'}" class="status-badge status-cancelled">İptal Edildi</span>
+                            </td>
+                            <td>
+                                <form th:if="${rental.status == 'Active'}" th:action="@{/cancel}" method="post">
+                                    <input type="hidden" name="rentalId" th:value="${rental.id}" />
+                                    <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-times"></i> İptal Et</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>
